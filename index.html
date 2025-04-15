@@ -1,136 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MyTechM8</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
     }
     .navbar {
-      background-color: #0077cc;
+      background-color: #1a1a1a;
     }
     .navbar-brand img {
-      max-height: 50px;
+      height: 40px;
+      margin-right: 10px;
     }
-    .hero {
-      background-color: #0077cc;
+    .hero-section {
+      background: linear-gradient(to right, #1c1c1c, #2c3e50);
       color: white;
-      text-align: center;
       padding: 100px 20px;
+      text-align: center;
     }
-    .btn-contact, .btn-book {
-      background-color: #1a73e8;
-      color: white;
-      padding: 10px 20px;
+    .hero-section h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .btn-main {
+      background-color: #00aaff;
       border: none;
-      border-radius: 5px;
+      padding: 12px 24px;
+      color: white;
+      border-radius: 4px;
+      font-weight: 600;
       text-decoration: none;
     }
-    .btn-contact:hover, .btn-book:hover {
-      background-color: #005fa3;
+    .services, .pricing, .testimonials, .contact {
+      padding: 60px 20px;
     }
-    .section {
-      padding: 40px 20px;
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
     }
-    .pricing-card {
-      border: 1px solid #ddd;
+    .card {
+      border: none;
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      background-color: #fff;
-      margin: 10px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     footer {
       background-color: #1a1a1a;
-      color: white;
+      color: #fff;
       text-align: center;
       padding: 20px 0;
     }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="https://your-github-link.com/path-to-your-logo/m8logo.png" alt="Logo">
-        MyTechM8
+        <img src="m8logo.png" alt="MyTechM8 Logo" />
+        <span>MyTechM8</span>
       </a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <img src="https://your-github-link.com/path-to-your-logo/m8logo.png" alt="Logo" style="max-height: 100px;" class="mb-3">
-    <h1>Affordable Tech Support You Can Trust</h1>
-    <p>Fast, honest, and local help for your everyday tech problems.</p>
-    <a href="https://wa.me/1234567890" target="_blank" class="btn-contact">Message on WhatsApp</a>
-  </div>
+  <section class="hero-section">
+    <div class="container">
+      <h1>Fast. Friendly. Tech Support.</h1>
+      <p>Local, honest help for your everyday tech issues.</p>
+      <a href="#contact" class="btn-main">Book a Support Call</a>
+    </div>
+  </section>
 
-  <!-- Services Section -->
-  <div class="section container" id="services">
-    <h2>Services</h2>
-    <ul>
-      <li>Computer & Laptop Troubleshooting</li>
-      <li>Phone & Tablet Help (iPhone, Android)</li>
-      <li>Wi-Fi, Printer, and Device Setup</li>
-      <li>Remote Tech Support</li>
-      <li>Senior-Friendly Assistance</li>
-    </ul>
-  </div>
-
-  <!-- Pricing Section -->
-  <div class="section container" id="pricing">
-    <h2>Pricing</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="pricing-card">
-          <h4>Flat Rate</h4>
-          <p>$50 per session</p>
-          <p>Perfect for small repairs.</p>
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <div class="card p-4 mb-4">
+            <h5>PC & Laptop Help</h5>
+            <p>Slow computer? Virus? I’ll fix it fast.</p>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="pricing-card">
-          <h4>Hourly Rate</h4>
-          <p>$40 per hour</p>
-          <p>For larger troubleshooting or setup.</p>
+        <div class="col-md-4">
+          <div class="card p-4 mb-4">
+            <h5>Phone Setup & Troubleshooting</h5>
+            <p>iPhone, Android, or something else — I’ve got you.</p>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="pricing-card">
-          <h4>Remote Support</h4>
-          <p>$30 per session</p>
-          <p>Quick and efficient online troubleshooting.</p>
+        <div class="col-md-4">
+          <div class="card p-4 mb-4">
+            <h5>Device Setup</h5>
+            <p>Wi-Fi, printers, smart TVs, and more — set up right.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Testimonials Section -->
-  <div class="section container" id="testimonials">
-    <h2>Testimonials</h2>
-    <p>"Abz helped me fix my laptop in no time! I highly recommend his service!" - Jane D.</p>
-    <p>"Fast, affordable, and very knowledgeable. Definitely my go-to tech support!" - John S.</p>
-  </div>
+  <section class="pricing bg-light">
+    <div class="container">
+      <h2 class="section-title">Pricing</h2>
+      <div class="row text-center">
+        <div class="col-md-6 offset-md-3">
+          <div class="card p-4">
+            <h5>Flat Rate</h5>
+            <p>$40 per session (up to 1 hour)</p>
+            <p>Includes remote or in-person support</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Booking Section -->
-  <div class="section container" id="booking">
-    <h2>Request Support</h2>
-    <a href="https://calendly.com" target="_blank" class="btn-book">Book a Session</a>
-  </div>
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">What People Say</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <blockquote class="blockquote">
+            “Fixed my laptop in under an hour. Very professional!” – Sarah K.
+          </blockquote>
+        </div>
+        <div class="col-md-6">
+          <blockquote class="blockquote">
+            “Super helpful with setting up my mom’s phone. Highly recommend.” – David R.
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Footer -->
+  <section class="contact bg-light">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="text-center">Need help? Reach out via WhatsApp or email.</p>
+      <div class="text-center">
+        <a href="mailto:your@email.com" class="btn-main mb-2">Email</a>
+        <a href="https://wa.me/1234567890" class="btn-main">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2025 MyTechM8. All rights reserved.</p>
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
