@@ -1,131 +1,769 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyTechM8</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background-color: #f8f9fa;
-    }
-    .navbar {
-      position: absolute;
-      width: 100%;
-      z-index: 1000;
-    }
-    .logo {
-      height: 40px;
-      margin-right: 10px;
-    }
-    .hero {
-      height: 100vh;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-    .section {
-      padding: 60px 20px;
-      background-color: white;
-      margin: 20px 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    footer {
-      background-color: #1a1a1a;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
-    }
-    .btn-primary {
-      background-color: #0077cc;
-      border: none;
-    }
-    .btn-primary:hover {
-      background-color: #005fa3;
-    }
-    .testimonial {
-      font-style: italic;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTechM8 - Tech Support That Gets You</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-blue: #2a5bd7;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: var(--medium-gray);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-blue);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #1a4abf;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .logo span {
+            color: var(--dark-gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            color: var(--dark-gray);
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--light-gray);
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Services Overview */
+        .services-overview {
+            background-color: var(--white);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        /* Why Choose Us */
+        .why-choose-us {
+            background-color: var(--light-gray);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature i {
+            color: var(--primary-blue);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        /* FAQ */
+        .faq {
+            background-color: var(--white);
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        /* Services Page */
+        .service-details {
+            margin-bottom: 50px;
+        }
+        
+        .service-details h2 {
+            margin-bottom: 15px;
+        }
+        
+        .service-details i {
+            color: var(--primary-blue);
+            margin-right: 10px;
+        }
+        
+        /* About Page */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Contact Page */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-method i {
+            font-size: 20px;
+            color: var(--primary-blue);
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+        
+        .testimonial-placeholder {
+            padding: 50px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--white);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 10px 20px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent px-3">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="m8logo.png" alt="MyTechM8 Logo" class="logo">
-      <span class="fw-bold">MyTechM8</span>
-    </a>
-  </nav>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">MyTech<span>M8</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="btn">Request Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <div class="hero">
-    <div>
-      <img src="m8logo.png" alt="MyTechM8 Logo" style="max-height: 100px; margin-bottom: 20px;">
-      <h1>Affordable Tech Support You Can Trust</h1>
-      <p>Fast, honest, and local help for your everyday tech problems.</p>
-      <a href="#contact" class="btn btn-primary">Request Support</a>
-    </div>
-  </div>
+    <!-- Home Page Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Tech Support That Gets You</h1>
+                <p>Simple, honest, and reliable IT and web help for small businesses.</p>
+                <a href="contact.html" class="btn">Get Help Today</a>
+                <a href="services.html" class="btn btn-outline">Our Services</a>
+            </div>
+        </section>
 
-  <div class="container">
-    <div class="section" id="services">
-      <h2 class="text-center">Services</h2>
-      <ul>
-        <li>Computer & Laptop Troubleshooting</li>
-        <li>Phone & Tablet Help (iPhone, Android)</li>
-        <li>Wi-Fi, Printer, and Device Setup</li>
-        <li>Remote Tech Support</li>
-        <li>Senior-Friendly Assistance</li>
-      </ul>
-    </div>
+        <!-- Services Overview -->
+        <section class="services-overview">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What We Do</h2>
+                    <p>We help small businesses with their tech needs so they can focus on what they do best.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Website Creation & Management</h3>
+                        <p>From simple sites to e-commerce, we build and maintain websites that work for your business.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Small Business Tech Support</h3>
+                        <p>Ongoing IT help for your computers, networks, and software.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Monthly IT Care Plans</h3>
+                        <p>Affordable packages to keep your tech running smoothly.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Remote and On-Site Help</h3>
+                        <p>We can fix most issues remotely or come to your location if needed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="section" id="about">
-      <h2 class="text-center">About</h2>
-      <p>Hi, I’m Abz. I’ve worked with Apple and helped hundreds of clients fix everyday tech issues. MyTechM8 is my way of offering simple, reliable, and affordable support to people who need it — without the stress of big-box store prices.</p>
-    </div>
+        <!-- Why Choose Us -->
+        <section class="why-choose-us">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose Us</h2>
+                    <p>We're different from the big tech companies - here's why our clients love working with us.</p>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Quick, No-Nonsense Support</h3>
+                        <p>No long hold times or confusing menus. Just fast, straightforward help when you need it.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Local and Remote Options</h3>
+                        <p>We serve clients in person in the GTA and remotely across Canada.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h3>Affordable Monthly Plans</h3>
+                        <p>Budget-friendly packages that give you peace of mind without breaking the bank.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-comments"></i>
+                        <h3>No Tech Jargon</h3>
+                        <p>We explain things in plain English so you understand what's happening with your tech.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="section" id="pricing">
-      <h2 class="text-center">Pricing</h2>
-      <ul>
-        <li>Remote Support: $25/hr</li>
-        <li>In-Person Visit: $40 flat rate</li>
-        <li>Senior Discount: 15% off</li>
-      </ul>
-    </div>
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-content">
+                    <div class="faq-item">
+                        <div class="faq-question">What kind of businesses do you support?</div>
+                        <div class="faq-answer">Mostly local businesses like clinics, salons, realtors, trades, and offices. If you're a small business with tech needs, we can probably help!</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Do you offer one-time fixes?</div>
+                        <div class="faq-answer">Yes, we do both one-off support and monthly plans. We're flexible to meet your needs.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Can you help me choose software or tools?</div>
+                        <div class="faq-answer">Absolutely. We help you pick what works best for your business without pushing expensive options you don't need.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Do you come on-site?</div>
+                        <div class="faq-answer">Yes, if you're local in the Greater Toronto Area. Otherwise, we offer fast remote support that solves most issues.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <div class="section" id="testimonials">
-      <h2 class="text-center">Testimonials</h2>
-      <p class="testimonial">"Abz fixed my Wi-Fi in minutes. Super polite and efficient!" - Sarah T.</p>
-      <p class="testimonial">"I thought my laptop was dead, but he brought it back to life. Thanks Abz!" - Mark D.</p>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MyTechM8</h3>
+                    <p>Simple, honest tech support for small businesses in Toronto and beyond.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Website Design</a></li>
+                        <li><a href="services.html">IT Support</a></li>
+                        <li><a href="services.html">Maintenance Plans</a></li>
+                        <li><a href="services.html">Remote Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@mytechm8.ca</li>
+                        <li><i class="fas fa-phone"></i> (416) 555-1234</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9am-6pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 MyTechM8. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <div class="section" id="contact">
-      <h2 class="text-center">Contact</h2>
-      <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
-      <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
-      <p><a href="https://wa.me/1234567890" target="_blank" class="btn btn-primary">Message on WhatsApp</a></p>
-    </div>
-  </div>
+    <!-- Services Page -->
+    <!--
+    <section class="services-page">
+        <div class="container">
+            <div class="section-title">
+                <h1>Our Services</h1>
+                <p>We offer comprehensive tech solutions tailored for small businesses.</p>
+            </div>
+            
+            <div class="service-details">
+                <h2><i class="fas fa-laptop-code"></i> Website Design & Management</h2>
+                <p>We build and maintain easy-to-use websites tailored for your business. Whether it's your first site or time for a refresh, we've got you covered.</p>
+                <ul>
+                    <li>WordPress, Wix, Shopify setups</li>
+                    <li>Website edits and updates</li>
+                    <li>Domain, hosting, and email setup</li>
+                    <li>SEO basics included</li>
+                </ul>
+            </div>
+            
+            <div class="service-details">
+                <h2><i class="fas fa-headset"></i> IT Support for Small Business</h2>
+                <p>Ongoing help for your tech needs so you can focus on running your business.</p>
+                <ul>
+                    <li>Wi-Fi setup and troubleshooting</li>
+                    <li>Printer and hardware setup</li>
+                    <li>Software installations and fixes</li>
+                    <li>Email issues, file backup, and security</li>
+                </ul>
+            </div>
+            
+            <div class="service-details">
+                <h2><i class="fas fa-calendar-check"></i> Monthly Maintenance Plans</h2>
+                <p>Keep your business running smoothly with regular updates and support.</p>
+                <ul>
+                    <li>Website updates</li>
+                    <li>Priority tech support</li>
+                    <li>Monthly system checks</li>
+                    <li>Starting at $100/month</li>
+                </ul>
+            </div>
+            
+            <div class="service-details">
+                <h2><i class="fas fa-globe"></i> Remote Help</h2>
+                <p>We can fix most issues without visiting your location using secure remote tools.</p>
+                <ul>
+                    <li>Quick response times</li>
+                    <li>Secure connection</li>
+                    <li>Available for one-time issues or ongoing support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    -->
 
-  <footer>
-    <p>&copy; 2025 MyTechM8. All rights reserved.</p>
-  </footer>
+    <!-- About Page -->
+    <!--
+    <section class="about-page">
+        <div class="container">
+            <div class="section-title">
+                <h1>Meet MyTechM8</h1>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Hi, I'm Abdullah – your local tech m8.</h2>
+                    <p>With years of experience supporting Apple products and small business IT systems, I started MyTechM8 to make reliable tech help more accessible to small businesses.</p>
+                    <p>I know how frustrating it can be when your tech isn't working and you can't get straight answers. That's why I focus on clear communication and practical solutions.</p>
+                    <p>No big-company runarounds. No pushy upsells. Just clear, friendly help that keeps your business going.</p>
+                    <p>When I'm not fixing tech issues, you might find me hiking local trails or trying out new coffee shops in the city.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400x500" alt="Abdullah, founder of MyTechM8">
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Contact Page -->
+    <!--
+    <section class="contact-page">
+        <div class="container">
+            <div class="section-title">
+                <h1>Need Help? Reach Out</h1>
+                <p>Fill out the form or contact us directly. We'll get back to you within 1 business day.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="How can we help?"></textarea>
+                        <select>
+                            <option>Preferred Contact Method</option>
+                            <option>Email</option>
+                            <option>Phone</option>
+                        </select>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@mytechm8.ca</span>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <span>(416) 555-1234</span>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon–Fri, 9am–6pm</span>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Serving the Greater Toronto Area and remotely across Canada</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Testimonials Page -->
+    <!--
+    <section class="testimonials-page">
+        <div class="container">
+            <div class="section-title">
+                <h1>What Clients Say</h1>
+                <p>Real stories coming soon as we build our client base!</p>
+            </div>
+            
+            <div class="testimonial-placeholder">
+                <i class="fas fa-comment-dots" style="font-size: 50px; color: #ccc; margin-bottom: 20px;"></i>
+                <h3>Testimonials Coming Soon</h3>
+                <p>We're just getting started, but we're excited to share feedback from our clients soon!</p>
+                <p>In the meantime, why not be our first happy customer?</p>
+                <a href="contact.html" class="btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
