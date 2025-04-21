@@ -187,62 +187,35 @@
     /* Hero Section */
     /* ===== Hero Section ===== */
 .hero {
-    background: linear-gradient(rgba(31, 52, 64, 0.85), /* Dark blue overlay */
-                url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
-    color: white;
+    background-color: var(--light-gray);
     text-align: center;
-    min-height: 100vh;
+    padding: 40px 0; /* Reduced padding (40px top and bottom) */
+    color: var(--dark-gray);
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 20px 0;
+    min-height: 300px; /* Ensures minimum height for the hero section */
 }
 
 .hero .container {
-    max-width: 900px;
-    padding: 0 20px;
+    width: 100%;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-blue);
     line-height: 1.2;
 }
 
 .hero p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     max-width: 700px;
-    margin: 0 auto 40px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    margin: 0 auto 30px;
+    color: var(--medium-gray);
 }
 
-/* ===== Hero Buttons ===== */
 .hero .btn {
-    background-color: var(--teal-medium);
-    color: white;
-    border: 2px solid var(--teal-medium);
-    padding: 15px 30px;
-    margin: 0 10px;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-.hero .btn:hover {
-    background-color: transparent;
-    color: white;
-    transform: translateY(-3px);
-}
-
-.hero .btn-outline {
-    background-color: transparent;
-    border-color: white;
-    color: white;
-}
-
-.hero .btn-outline:hover {
-    background-color: white;
-    color: var(--dark-blue);
+    margin: 0 10px; /* Space between buttons */
 }
     /* Services Overview */
     .services-overview {
