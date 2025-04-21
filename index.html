@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyTechM8 - All Your IT and Tech Solutions </title>
+    <title>MyTechM8 - All Your IT and Tech Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Global Styles */
+        /* Color Scheme */
         :root {
-            --primary-blue: #2a5bd7;
-            --dark-gray: #333333;
-            --medium-gray: #666666;
-            --light-gray: #f5f5f5;
+            --dark-blue: #1F3440;
+            --teal-dark: #2c6566;
+            --teal-medium: #25bdb0;
+            --teal-light: #56d7b4;
+            --accent-yellow: #edbf43;
             --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #666666;
+            --dark-gray: #333333;
         }
         
         * {
@@ -25,6 +29,7 @@
         body {
             color: var(--dark-gray);
             line-height: 1.6;
+            background-color: var(--white);
         }
         
         .container {
@@ -35,7 +40,7 @@
         }
         
         h1, h2, h3 {
-            color: var(--primary-blue);
+            color: var(--dark-blue);
             margin-bottom: 20px;
         }
         
@@ -46,12 +51,12 @@
         
         a {
             text-decoration: none;
-            color: var(--primary-blue);
+            color: var(--teal-dark);
         }
         
         .btn {
             display: inline-block;
-            background-color: var(--primary-blue);
+            background-color: var(--teal-medium);
             color: var(--white);
             padding: 12px 25px;
             border-radius: 5px;
@@ -62,18 +67,18 @@
         }
         
         .btn:hover {
-            background-color: #1a4abf;
+            background-color: var(--teal-dark);
             transform: translateY(-2px);
         }
         
         .btn-outline {
             background-color: transparent;
-            border: 2px solid var(--primary-blue);
-            color: var(--primary-blue);
+            border: 2px solid var(--teal-medium);
+            color: var(--teal-medium);
         }
         
         .btn-outline:hover {
-            background-color: var(--primary-blue);
+            background-color: var(--teal-medium);
             color: var(--white);
         }
         
@@ -88,11 +93,20 @@
         
         /* Header & Navigation */
         header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--dark-blue);
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: background-color 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: var(--accent-yellow);
+        }
+        
+        header.scrolled .logo,
+        header.scrolled nav ul li a {
+            color: var(--dark-blue);
         }
         
         .nav-container {
@@ -107,19 +121,18 @@
             align-items: center;
         }
         
-        .logo-img {
-            height: 55px;
-            margin-right: 15px;
-        }
-        
         .logo {
             font-size: 36px;
             font-weight: 750;
-            color: var(--primary-blue);
+            color: var(--white);
+            display: flex;
+            align-items: center;
         }
         
-        .logo span {
-            color: var(--dark-gray);
+        .logo-icon {
+            font-size: 40px;
+            margin-right: 10px;
+            color: var(--teal-light);
         }
         
         nav ul {
@@ -133,12 +146,12 @@
         
         nav ul li a {
             font-weight: 500;
-            color: var(--dark-gray);
+            color: var(--white);
             transition: color 0.3s ease;
         }
         
         nav ul li a:hover {
-            color: var(--primary-blue);
+            color: var(--teal-light);
         }
         
         .mobile-menu-btn {
@@ -146,7 +159,7 @@
             background: none;
             border: none;
             font-size: 24px;
-            color: var(--primary-blue);
+            color: var(--white);
             cursor: pointer;
         }
 
@@ -161,23 +174,30 @@
         
         /* Hero Section */
         .hero {
-            background-color: var(--light-gray);
+            background-color: var(--dark-blue);
             text-align: center;
-            padding: 100px 0;
+            padding: 120px 0;
+            color: var(--white);
         }
         
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 15px;
+            color: var(--white);
         }
         
         .hero p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 30px;
+            color: var(--teal-light);
         }
         
         /* Services Overview */
+        .services-overview {
+            background-color: var(--light-gray);
+        }
+        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -186,30 +206,33 @@
         }
         
         .service-card {
-            background-color: var(--light-gray);
+            background-color: var(--white);
             padding: 30px;
             border-radius: 8px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .service-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         
         .service-icon {
             font-size: 40px;
-            color: var(--primary-blue);
+            color: var(--teal-medium);
             margin-bottom: 20px;
         }
         
         /* Support Form */
         .support-form {
-            background-color: var(--light-gray);
+            background-color: var(--white);
             padding: 40px;
             border-radius: 8px;
             max-width: 800px;
             margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .form-group {
@@ -220,6 +243,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            color: var(--dark-blue);
         }
         
         .form-group input,
@@ -230,6 +254,14 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--teal-medium);
+            outline: none;
         }
         
         .form-group textarea {
@@ -237,6 +269,16 @@
         }
         
         /* Why Choose Us */
+        .why-choose-us {
+            background-color: var(--teal-light);
+            color: var(--white);
+        }
+        
+        .why-choose-us h2,
+        .why-choose-us p {
+            color: var(--white);
+        }
+        
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -244,23 +286,33 @@
         }
         
         .feature {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.2);
         }
         
         .feature i {
-            color: var(--primary-blue);
+            color: var(--white);
             font-size: 24px;
             margin-bottom: 15px;
         }
         
-        /* About Page */
+        /* Combined About/Contact Page */
+        .about-contact {
+            background-color: var(--light-gray);
+        }
+        
         .about-content {
             display: flex;
             align-items: center;
             gap: 50px;
+            margin-bottom: 60px;
         }
         
         .about-text {
@@ -279,6 +331,16 @@
         }
         
         /* Testimonials */
+        .testimonials {
+            background-color: var(--teal-dark);
+            color: var(--white);
+        }
+        
+        .testimonials h2,
+        .testimonials p {
+            color: var(--white);
+        }
+        
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -286,10 +348,9 @@
         }
         
         .testimonial {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .testimonial-content {
@@ -302,6 +363,10 @@
         }
         
         /* FAQ */
+        .faq {
+            background-color: var(--white);
+        }
+        
         .faq-item {
             margin-bottom: 20px;
             border-bottom: 1px solid #eee;
@@ -310,13 +375,13 @@
         
         .faq-question {
             font-weight: 600;
-            color: var(--primary-blue);
+            color: var(--teal-dark);
             margin-bottom: 10px;
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark-gray);
+            background-color: var(--dark-blue);
             color: var(--white);
             padding: 50px 0 20px;
         }
@@ -342,7 +407,7 @@
         }
         
         .footer-column ul li a {
-            color: #ccc;
+            color: var(--teal-light);
             transition: color 0.3s ease;
         }
         
@@ -353,8 +418,8 @@
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #aaa;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--teal-light);
             font-size: 14px;
         }
         
@@ -372,10 +437,9 @@
                 top: 80px;
                 left: 0;
                 width: 100%;
-                background-color: var(--white);
+                background-color: var(--dark-blue);
                 flex-direction: column;
                 padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             }
             
             nav ul.show {
@@ -398,10 +462,6 @@
             section {
                 padding: 60px 0;
             }
-            
-            .logo-img {
-                height: 30px;
-            }
         }
         
         @media (max-width: 576px) {
@@ -420,16 +480,26 @@
             .support-form {
                 padding: 20px;
             }
+            
+            .logo {
+                font-size: 28px;
+            }
+            
+            .logo-icon {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header & Navigation -->
-    <header>
+    <header id="mainHeader">
         <div class="container nav-container">
             <a href="#" class="logo-container" onclick="showPage('home')">
-                <img src="m8logo.png" alt="MyTechM8 Logo" class="logo-img">
-                <span class="logo">MyTech<span>M8</span></span>
+                <div class="logo">
+                    <i class="fas fa-laptop-code logo-icon"></i>
+                    <span>MyTech<span>M8</span></span>
+                </div>
             </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -438,9 +508,8 @@
                 <ul id="navMenu">
                     <li><a href="#" onclick="showPage('home')">Home</a></li>
                     <li><a href="#" onclick="showPage('services')">Services</a></li>
-                    <li><a href="#" onclick="showPage('about')">About Us</a></li>
                     <li><a href="#" onclick="showPage('testimonials')">Testimonials</a></li>
-                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
                     <li><a href="#" class="btn" onclick="showPage('services')">Request Support</a></li>
                 </ul>
             </nav>
@@ -454,7 +523,7 @@
                 <h1>All Your IT and Tech Solutions</h1>
                 <p>Simple, Affordable, and Reliable tech help for all your devices, and tech needs.</p>
                 <a href="#" class="btn" onclick="showPage('services')">Get Help Today</a>
-                <a href="#" class="btn btn-outline" onclick="showPage('services')">Our Services</a>
+                <a href="#" class="btn btn-outline" onclick="showPage('services')" style="color: var(--white); border-color: var(--white);">Our Services</a>
             </div>
         </div>
 
@@ -665,50 +734,6 @@
         </div>
     </section>
 
-    <!-- About Page -->
-    <section id="about" class="page">
-        <div class="container">
-            <div class="section-title">
-                <h1>Meet MyTechM8</h1>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Your local tech m8.</h2>
-                    <p>With years of experience supporting tech products and small business IT systems, we started MyTechM8 to make reliable tech help more accessible to small businesses and locals.</p>
-                    <p>We know how frustrating it can be when your tech isn't working and you can't get straight answers. That's why we focus on clear communication and practical solutions.</p>
-                    <p>No big-company runarounds. No pushy upsells. Just clear, friendly help that keeps your business and tech going.</p>
-                    <p>When we're not fixing tech issues, you might find us or trying out new coffee shops in the city or attending tech workshops.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://via.placeholder.com/400x500" alt="Abdul, founder of MyTechM8">
-                </div>
-            </div>
-            
-            <div class="section-title">
-                <h2>Our Mission</h2>
-            </div>
-            
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Honest Service</h3>
-                    <p>We'll never recommend services you don't need or charge for unnecessary fixes.</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Simple Solutions</h3>
-                    <p>We believe tech support should be straightforward and easy to understand.</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-heart"></i>
-                    <h3>Community Focused</h3>
-                    <p>We're committed to helping local businesses thrive through better technology.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Testimonials Page -->
     <section id="testimonials" class="page">
         <div class="container">
@@ -738,7 +763,7 @@
                 
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        "I was skeptical about remote support at first, but mike walked me through the entire process and fixed my printer issues without needing to come onsite. Saved me time and money!"
+                        "I was skeptical about remote support at first, but they walked me through the entire process and fixed my printer issues without needing to come onsite. Saved me time and money!"
                     </div>
                     <div class="testimonial-author">
                         - James L., Accountant
@@ -748,67 +773,115 @@
         </div>
     </section>
 
-    <!-- Contact Page -->
+    <!-- Combined About/Contact Page -->
     <section id="contact" class="page">
-        <div class="container">
-            <div class="section-title">
-                <h1>Contact Us</h1>
-                <p>Reach out with any questions or to schedule service.</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="contact-name">Your Name</label>
-                            <input type="text" id="contact-name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contact-email">Email Address</label>
-                            <input type="email" id="contact-email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contact-subject">Subject</label>
-                            <input type="text" id="contact-subject" name="subject" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contact-message">Message</label>
-                            <textarea id="contact-message" name="message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+        <div class="about-contact">
+            <div class="container">
+                <div class="section-title">
+                    <h1>About Us & Contact</h1>
+                    <p>Learn about our team and get in touch with us.</p>
                 </div>
                 
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    
-                    <div class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <span>support@mytechm8.ca</span>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Your local tech m8.</h2>
+                        <p>With years of experience supporting tech products and small business IT systems, we started MyTechM8 to make reliable tech help more accessible to small businesses and locals.</p>
+                        <p>We know how frustrating it can be when your tech isn't working and you can't get straight answers. That's why we focus on clear communication and practical solutions.</p>
+                        <p>No big-company runarounds. No pushy upsells. Just clear, friendly help that keeps your business and tech going.</p>
+                        <p>When we're not fixing tech issues, you might find us trying out new coffee shops in the city or attending tech workshops.</p>
+                        
+                        <div class="features" style="margin-top: 40px;">
+                            <div class="feature">
+                                <i class="fas fa-handshake"></i>
+                                <h3>Honest Service</h3>
+                                <p>We'll never recommend services you don't need or charge for unnecessary fixes.</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-lightbulb"></i>
+                                <h3>Simple Solutions</h3>
+                                <p>We believe tech support should be straightforward and easy to understand.</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-heart"></i>
+                                <h3>Community Focused</h3>
+                                <p>We're committed to helping local businesses thrive through better technology.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Tech support team">
+                    </div>
+                </div>
+                
+                <div class="section-title">
+                    <h2>Get In Touch</h2>
+                    <p>Reach out with any questions or to schedule service.</p>
+                </div>
+                
+                <div class="contact-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contact-name">Your Name</label>
+                                <input type="text" id="contact-name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-subject">Subject</label>
+                                <input type="text" id="contact-subject" name="subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-message">Message</label>
+                                <textarea id="contact-message" name="message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
                     </div>
                     
-                    <div class="contact-method">
-                        <i class="fas fa-phone"></i>
-                        <span>(416) 555-1234</span>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <i class="fas fa-clock"></i>
-                        <span>Monday - Sun: 9am - 6pm</span>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Serving the Greater Toronto Area and remotely across Canada</span>
-                    </div>
-                    
-                    <div class="contact-method">
-                        <i class="fas fa-comments"></i>
-                        <span>Emergency support available outside business hours</span>
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>mytechm8ca@gmail.com</span>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <span>(416) 555-1234</span>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Sunday: 9am - 6pm</span>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Serving the Greater Toronto Area and remotely across Canada</span>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-comments"></i>
+                            <span>Emergency support available outside business hours</span>
+                        </div>
+                        
+                        <div style="margin-top: 30px;">
+                            <h3>Follow Us</h3>
+                            <div style="display: flex; gap: 15px; font-size: 24px;">
+                                <a href="#" style="color: var(--teal-dark);"><i class="fab fa-facebook"></i></a>
+                                <a href="#" style="color: var(--teal-dark);"><i class="fab fa-twitter"></i></a>
+                                <a href="#" style="color: var(--teal-dark);"><i class="fab fa-instagram"></i></a>
+                                <a href="#" style="color: var(--teal-dark);"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -828,9 +901,8 @@
                     <ul>
                         <li><a href="#" onclick="showPage('home')">Home</a></li>
                         <li><a href="#" onclick="showPage('services')">Services</a></li>
-                        <li><a href="#" onclick="showPage('about')">About Us</a></li>
                         <li><a href="#" onclick="showPage('testimonials')">Testimonials</a></li>
-                        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -845,7 +917,7 @@
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> support@mytechm8.ca</li>
+                        <li><i class="fas fa-envelope"></i> mytechm8ca@gmail.com</li>
                         <li><i class="fas fa-phone"></i> (416) 555-1234</li>
                         <li><i class="fas fa-clock"></i> Mon-Sun: 9am-6pm</li>
                     </ul>
@@ -879,6 +951,16 @@
             // Scroll to top
             window.scrollTo(0, 0);
         }
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
         
         // Form Submission
         document.getElementById('supportRequestForm').addEventListener('submit', function(e) {
