@@ -186,22 +186,36 @@
     
     /* Hero Section */
     .hero {
-    padding: 0;  /* No padding */
+    background-color: var(--light-gray);
+    text-align: center;
+    padding: 40px 0; /* Reduced padding (40px top and bottom) */
+    color: var(--dark-gray);
+    display: flex;
+    align-items: center;
+    min-height: 300px; /* Ensures minimum height for the hero section */
 }
-    
-    .hero h1 {
-        font-size: 2.8rem;
-        margin-bottom: 4px;
-        color: var(--dark-blue);
-    }
-    
-    .hero p {
-        font-size: 1.2rem;
-        max-width: 700px;
-        margin: 0 auto 30px;
-        color: var(--medium-gray);
-    }
-    
+
+.hero .container {
+    width: 100%;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-blue);
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: var(--medium-gray);
+}
+
+.hero .btn {
+    margin: 0 10px; /* Space between buttons */
+}
     /* Services Overview */
     .services-overview {
         background-color: var(--light-gray);
@@ -540,14 +554,16 @@
 
     <!-- Home Page -->
     <section id="home" class="page active">
-        <div class="hero">
-            <div class="container">
-                <h1>All Your IT and Tech Solutions</h1>
-                <p>Simple, Affordable, and Reliable tech help for all your devices, and tech needs.</p>
-                <a href="#" class="btn" onclick="showPage('services')">Get Help Today</a>
-                <a href="#" class="btn btn-outline" onclick="showPage('services')">Our Services</a>
-            </div>
+       <div class="hero">
+    <div class="container">
+        <h1>All Your IT and Tech Solutions</h1>
+        <p>Simple, Affordable, and Reliable tech help for all your devices, and tech needs.</p>
+        <div>
+            <a href="#" class="btn" onclick="showPage('services')">Get Help Today</a>
+            <a href="#" class="btn btn-outline" onclick="showPage('services')">Our Services</a>
         </div>
+    </div>
+</div>
 
         <section class="services-overview">
             <div class="container">
