@@ -11,12 +11,13 @@
         --dark-blue: #1F3440;
         --teal-dark: #2c6566;
         --teal-medium: #25bdb0;
-        --teal-light: #3ab7a6; /* Darker teal for better contrast */
-        --accent-yellow: #f5d061; /* Lighter, more yellow shade */
+        --teal-light: #3ab7a6;
+        --accent-yellow: #f5d061;
         --white: #ffffff;
-        --light-gray: #f5f5f5;
+        --light-gray: #f8f9fa; /* Light greyish-white */
         --medium-gray: #666666;
         --dark-gray: #333333;
+        --section-gray: #f1f3f5; /* Slightly darker gray for sections */
     }
     
     * {
@@ -93,11 +94,12 @@
     
     /* Header & Navigation */
     header {
-        background-color: var(--dark-blue);
+        background-color: var(--light-gray);
         position: sticky;
         top: 0;
         z-index: 100;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     
     header.scrolled {
@@ -124,13 +126,13 @@
     .logo {
         font-size: 36px;
         font-weight: 750;
-        color: var(--white);
+        color: var(--dark-blue);
         display: flex;
         align-items: center;
     }
     
     .logo span {
-        color: var(--teal-medium); /* Makes "M8" match the teal color scheme */
+        color: var(--teal-medium);
     }
     
     .logo-icon {
@@ -150,7 +152,7 @@
     
     nav ul li a {
         font-weight: 500;
-        color: var(--white);
+        color: var(--dark-blue);
         transition: color 0.3s ease;
     }
     
@@ -163,7 +165,7 @@
         background: none;
         border: none;
         font-size: 24px;
-        color: var(--white);
+        color: var(--dark-blue);
         cursor: pointer;
     }
 
@@ -178,23 +180,23 @@
     
     /* Hero Section */
     .hero {
-        background-color: var(--dark-blue);
+        background-color: var(--light-gray);
         text-align: center;
-        padding: 120px 0;
-        color: var(--white);
+        padding: 120px 0 80px;
+        color: var(--dark-gray);
     }
     
     .hero h1 {
         font-size: 2.8rem;
         margin-bottom: 15px;
-        color: var(--white);
+        color: var(--dark-blue);
     }
     
     .hero p {
         font-size: 1.2rem;
         max-width: 700px;
         margin: 0 auto 30px;
-        color: var(--teal-light);
+        color: var(--medium-gray);
     }
     
     /* Services Overview */
@@ -274,7 +276,7 @@
     
     /* Why Choose Us */
     .why-choose-us {
-        background-color: var(--teal-light);
+        background-color: var(--teal-dark);
         color: var(--white);
     }
     
@@ -336,7 +338,7 @@
     
     /* Testimonials */
     .testimonials {
-        background-color: var(--teal-dark);
+        background-color: var(--teal-medium);
         color: var(--white);
     }
     
@@ -368,7 +370,7 @@
     
     /* FAQ */
     .faq {
-        background-color: var(--white);
+        background-color: var(--light-gray);
     }
     
     .faq-item {
@@ -432,6 +434,10 @@
         .about-content {
             flex-direction: column;
         }
+        
+        .contact-container {
+            grid-template-columns: 1fr !important;
+        }
     }
     
     @media (max-width: 768px) {
@@ -441,9 +447,10 @@
             top: 80px;
             left: 0;
             width: 100%;
-            background-color: var(--dark-blue);
+            background-color: var(--light-gray);
             flex-direction: column;
             padding: 20px 0;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         }
         
         nav ul.show {
@@ -527,7 +534,7 @@
                 <h1>All Your IT and Tech Solutions</h1>
                 <p>Simple, Affordable, and Reliable tech help for all your devices, and tech needs.</p>
                 <a href="#" class="btn" onclick="showPage('services')">Get Help Today</a>
-                <a href="#" class="btn btn-outline" onclick="showPage('services')" style="color: var(--white); border-color: var(--white);">Our Services</a>
+                <a href="#" class="btn btn-outline" onclick="showPage('services')">Our Services</a>
             </div>
         </div>
 
